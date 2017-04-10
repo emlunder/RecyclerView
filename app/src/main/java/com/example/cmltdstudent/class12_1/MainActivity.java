@@ -31,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void addRandomPerson(View view) {
+        //populate and increase the list
         persons.add(getRandomPerson());
+        //important line: data has grown and the adapter needs to be told to refresh
         personsAdapter.notifyDataSetChanged();
     }
 
@@ -44,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Person getRandomPerson() {
+        //Xi gave the numbers to random of his initial items so when random goes, the number
+        //selected will assign that item
         int num = (int) (Math.random() * 3);
         if (num == 0)
             return new Person("Bill Clinton", "1993-2001", R.drawable.clinton);
